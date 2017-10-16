@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Česká Spořitelna</title>
+    <style>
+      body{
+        margin:0px;
+        padding:0px;
+        overflow:hidden;
+      }
+      iframe{
+        overflow:hidden;
+        overflow-x:hidden;
+        overflow-y:hidden;
+        height:100%;
+        width:100%;
+        position:absolute;
+        top:0px;
+        left:0px;
+        right:0px;
+        bottom:0px
+      }
+    </style>
+    <script type="text/javascript">
+    var myVar = setInterval(loadSource, 3000);
+    var currentSource = 0;
+    var sources = new Array();
+    sources[0] = "./1.html";
+    sources[1] = "./2.html";
+    sources[2] = "./3.html";
+
+    function loadSource()
+    {
+      if (currentSource >= sources.length - 1) {
+        currentSource = 0;
+        console.log("\t! ! ! RESET ! ! !");
+      }else {
+        currentSource++;
+      }
+      document.getElementById("frame").src = sources[currentSource];
+
+      console.log("sources: [0] -> [" + (sources.length - 1) + "]");
+      console.log("currentSource: " + currentSource);
+      console.log("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+    }
+    </script>
+  </head>
+  <body>
+    <iframe id="frame" src="./1.html" frameBorder="0" height="100%" width="100%">Nelze zobrazit</iframe>
+  </body>
+</html>
